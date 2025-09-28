@@ -5,6 +5,7 @@ from .models import Author, Genre, Book, BookInstance
 admin.site.register(Genre)
 
 
+
 class BooksInline(admin.StackedInline):
     model = Book
 
@@ -40,3 +41,6 @@ class BooksInstanceInline(admin.TabularInline):
 class BookAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'display_genre', 'price')
     inlines = [BooksInstanceInline]
+
+
+
