@@ -4,18 +4,15 @@
     <h1>Book List</h1>
 
     {% if book_list %}
+    <ul>
 
       {% for book in book_list %}
-        <form method="POST" action="{% url 'calculate_total' %}">
-            {% csrf_token %}
-                <div>
-                    <input type="checkbox" name="selected_books" value="{{ book.price }}">
-                    <a href="{{ book.get_absolute_url }}"> {{ book.title }}</a> {{book.author}} -- {{ book.price }} рублей.
-                </div>
-            {% endfor %}
-            <button type="submit">Заказать</button>
-        </form>
+      <li>
+        <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{book.author}})
+      </li>
+      {% endfor %}
 
+    </ul>
     {% else %}
       <p>В библиотеке книг нет.</p>
     {% endif %}
