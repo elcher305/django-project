@@ -1,6 +1,6 @@
 from django.urls import re_path
 from . import views
-from .views import calculate_total
+
 
 urlpatterns = [
     re_path(r'^$', views.index, name='index'),
@@ -17,5 +17,4 @@ urlpatterns = [
     re_path(r'^book/create/$', views.BookCreate.as_view(), name='book_create'),
     re_path(r'^book/(?P<pk>\d+)/update/$', views.BookUpdate.as_view(), name='book_update'),
     re_path(r'^book/(?P<pk>\d+)/delete/$', views.BookDelete.as_view(), name='book_delete'),
-    re_path('calculate_total/', calculate_total, name='calculate_total'),
 ]

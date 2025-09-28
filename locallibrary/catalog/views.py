@@ -129,9 +129,4 @@ class BookDelete(DeleteView):
     success_url = reverse_lazy('books')
 
 
-def calculate_total(request):
-    if request.method == 'POST':
-        selected_books = request.POST.getlist('selected_books')
-        total_price = sum(int(price) for price in selected_books)
 
-        return render(request, 'catalog/book_list.html', {'total_price': total_price})
